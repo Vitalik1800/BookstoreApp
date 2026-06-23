@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Час створення: Лис 13 2024 р., 10:04
--- Версія сервера: 8.0.40
+-- Час створення: Чрв 23 2026 р., 19:20
+-- Версія сервера: 8.0.41
 -- Версія PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -40,9 +40,11 @@ CREATE TABLE `buyer` (
 --
 
 INSERT INTO `buyer` (`id`, `storeName`, `fullName`, `phoneNumber`, `purchaseId`) VALUES
-(3, 'BookHouse', 'Іван Петров', '+380501234567', 2),
-(4, 'ReadersHub', 'Олена Іванова', '+380931234567', 3),
-(6, 'BookWorld', 'Петро Сидоренко', '+380671234567', 4);
+(1, 'BookHouse', 'Іван Петренко', '+380501112233', 1),
+(2, 'ReadersHub', 'Олена Коваль', '+380671234567', 2),
+(3, 'BookWorld', 'Михайло Сидоренко', '+380931112233', 3),
+(4, 'Книжкова Планета', 'Анна Іванчук', '+380991234567', 4),
+(5, 'Світ Книг', 'Василь Бондар', '+380731234567', 5);
 
 -- --------------------------------------------------------
 
@@ -63,9 +65,11 @@ CREATE TABLE `purchase` (
 --
 
 INSERT INTO `purchase` (`purchaseId`, `bookTitle`, `quantity`, `cost`, `genre`) VALUES
-(2, 'Убити пересмішника', 2, 19.99, 'Класична література'),
-(3, '1984', 1, 15.50, 'Антиутопія'),
-(4, 'Великий Гетсбі', 3, 25.00, 'Класична література');
+(1, '1984', 2, 15.50, 'Класична література'),
+(2, 'Майстер і Маргарита', 1, 18.90, 'Роман'),
+(3, 'Тіні забутих предків', 3, 12.50, 'Класика'),
+(4, 'Кобзар', 2, 20.00, 'Поезія'),
+(5, 'Гаррі Поттер і філософський камінь', 4, 25.00, 'Фентезі');
 
 -- --------------------------------------------------------
 
@@ -88,8 +92,11 @@ CREATE TABLE `sellers` (
 --
 
 INSERT INTO `sellers` (`id`, `store_name`, `full_name`, `address`, `phone`, `shift`, `track_number`) VALUES
-(2, 'Магазин \"Літера\"', 'Марія Коваль', 'вул. Гоголя, 7, Харків', '+380681234567', 'Нічна', 'TN001'),
-(3, 'Книжкова лавка \"Ранок\"', 'Олександр Іванов', 'вул. Ватутіна, 45, Одеса\'', '+380931234567', 'Денна', 'TN002');
+(1, 'BookHouse', 'Марія Коваль', 'вул. Шевченка, 10, Львів', '+380501111111', 'Денна', 'TN001'),
+(2, 'ReadersHub', 'Олександр Мельник', 'вул. Франка, 15, Київ', '+380671111111', 'Нічна', 'TN002'),
+(3, 'BookWorld', 'Ірина Бойко', 'просп. Соборний, 50, Запоріжжя', '+380931111111', 'Денна', 'TN003'),
+(4, 'Книжкова Планета', 'Наталія Ткаченко', 'вул. Грушевського, 22, Тернопіль', '+380991111111', 'Вечірня', 'TN004'),
+(5, 'Світ Книг', 'Андрій Савчук', 'вул. Незалежності, 5, Івано-Франківськ', '+380731111111', 'Денна', 'TN005');
 
 --
 -- Індекси збережених таблиць
@@ -122,29 +129,19 @@ ALTER TABLE `sellers`
 -- AUTO_INCREMENT для таблиці `buyer`
 --
 ALTER TABLE `buyer`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT для таблиці `purchase`
 --
 ALTER TABLE `purchase`
-  MODIFY `purchaseId` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `purchaseId` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT для таблиці `sellers`
 --
 ALTER TABLE `sellers`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- Обмеження зовнішнього ключа збережених таблиць
---
-
---
--- Обмеження зовнішнього ключа таблиці `buyer`
---
-ALTER TABLE `buyer`
-  ADD CONSTRAINT `buyer_ibfk_1` FOREIGN KEY (`purchaseId`) REFERENCES `purchase` (`purchaseId`);
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

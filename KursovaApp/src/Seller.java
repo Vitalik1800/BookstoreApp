@@ -48,4 +48,17 @@ public class Seller {
     public void setId(int id) {
         this.id = id;
     }
+
+    @Override
+    public String toString() {
+        return "Seller{" +
+                "id=" + id +
+                ", storeName='" + storeName + '\'' +
+                ", fullName='" + fullName + '\'' +
+                ", address='" + address + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", shift='" + shift + '\'' +
+                ", trackNumber='" + trackNumber + '\'' +
+                '}';
+    }
 }
