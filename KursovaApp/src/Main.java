@@ -119,11 +119,12 @@ public class Main {
                             model.setRowCount(0); // Clear existing rows
                             ResultSet resultSet = database.getBuyers(); // Assuming there's a method to get all buyers
                             while (resultSet.next()) {
+                                int id = resultSet.getInt("id");
                                 String storeNameFromDb = resultSet.getString("storeName");
                                 String fullNameFromDb = resultSet.getString("fullName");
                                 String phoneFromDb = resultSet.getString("phoneNumber");
                                 int bookIdFromDb = resultSet.getInt("purchaseId");
-                                model.addRow(new Object[]{storeNameFromDb, fullNameFromDb, phoneFromDb, bookIdFromDb});
+                                model.addRow(new Object[]{id, storeNameFromDb, fullNameFromDb, phoneFromDb, bookIdFromDb});
                             }
                         } catch (SQLException ex) {
                             JOptionPane.showMessageDialog(buyersWindow, "Помилка при додаванні покупця: " + ex.getMessage(), "Помилка", JOptionPane.ERROR_MESSAGE);
@@ -354,13 +355,14 @@ public class Main {
                         model.setRowCount(0); // Clear existing rows
                         ResultSet resultSet = database.getSellers();
                         while (resultSet.next()) {
+                            int id = resultSet.getInt("id");
                             String storeNameFromDb = resultSet.getString("store_name");
                             String fullNameFromDb = resultSet.getString("full_name");
                             String addressFromDb = resultSet.getString("address");
                             String phoneFromDb = resultSet.getString("phone");
                             String shiftFromDb = resultSet.getString("shift");
                             String trackNumberFromDb = resultSet.getString("track_number");
-                            model.addRow(new Object[]{storeNameFromDb, fullNameFromDb, addressFromDb, phoneFromDb, shiftFromDb, trackNumberFromDb});
+                            model.addRow(new Object[]{id, storeNameFromDb, fullNameFromDb, addressFromDb, phoneFromDb, shiftFromDb, trackNumberFromDb});
                         }
                     } catch (SQLException ex) {
                         JOptionPane.showMessageDialog(sellerWindow, "Помилка при додаванні продавця: " + ex.getMessage(), "Помилка", JOptionPane.ERROR_MESSAGE);
@@ -537,11 +539,12 @@ public class Main {
                         model.setRowCount(0); // Clear existing rows
                         ResultSet resultSet = database.getPurchases();
                         while (resultSet.next()) {
+                            int id = resultSet.getInt("purchaseId");
                             String bookTitleFromDb = resultSet.getString("bookTitle");
                             String quantityFromDb = resultSet.getString("quantity");
                             String costFromDb = resultSet.getString("cost");
                             String genreFromDb = resultSet.getString("genre");
-                            model.addRow(new Object[]{bookTitleFromDb, quantityFromDb, costFromDb, genreFromDb});
+                            model.addRow(new Object[]{id, bookTitleFromDb, quantityFromDb, costFromDb, genreFromDb});
                         }
                     } catch (SQLException ex) {
                         JOptionPane.showMessageDialog(purchaseWindow, "Помилка при додаванні продавця: " + ex.getMessage(), "Помилка", JOptionPane.ERROR_MESSAGE);
