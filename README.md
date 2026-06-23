@@ -188,7 +188,7 @@ Displays:
 ### 1. Clone repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/BookstoreManagementSystem.git
+git clone https://github.com/Vitalik1800/BookstoreApp
 ```
 
 ### 2. Create database
