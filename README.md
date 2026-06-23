@@ -137,9 +137,9 @@ Main tables:
 
 ## 📸 Screenshots
 
-All screenshots can be found here:
+All screenshots can be found in:
 
-📁 **[Screenshots Folder](./screenshots)**
+screenshots/
 
 Recommended screenshots:
 
